@@ -27,6 +27,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         heightConstraint.constant = tableView.contentSize.height
     }
     
+    @IBAction func onTouchDecrease(_ sender: Any) {
+        guard items.count > 0 else { return }
+        items.removeLast()
+        tableView.reloadData()
+        heightConstraint.constant = tableView.contentSize.height
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
